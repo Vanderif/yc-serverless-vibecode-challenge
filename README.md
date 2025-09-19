@@ -73,6 +73,13 @@
 
 3. Создать Service Account для запуска Cloud Functions. Это может быть тот же SA, что и для работы с Object Storage. Выдать ему роль 'functions.functionInvoker' на уровне каталога.
 
-# Специфичные настройки для задания IOT Core
+## Специфичные настройки для задания NextJS
+
+1. Установить [Docker](https://www.docker.com).
+2. Установить [NodeJS](https://nodejs.org).
+3. Установить [Typescript](https://www.typescriptlang.org).
+4. Установить [Terraform](https://yandex.cloud/ru/docs/tutorials/infrastructure-management/terraform-quickstart#install-terraform).
+
+## Специфичные настройки для задания IOT Core
 
 Отсутствуют.
