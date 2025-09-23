@@ -4,11 +4,11 @@ customModes:
     roleDefinition: CloudOps engeneer
     customInstructions: |-
       Создавай файлы в текущем каталоге.
-      Создай сервисный аккаунт с ролью lockbox.payloadViewer для работы с секретами Lockbox.
-      Используй этот сервисный аккаунт для работы с секретами Lockbox. Узнай и используй все 4 ключа из секрета с именем iot (это сертификаты для mqtt соедининия и deviceId). Передавай 4 ключа секрета через переменные окружения версии функции подключенных специальным образом (флаг --secret, проверь как пользоваться командой создания функции yc serverless function version create --help).
-      Для создания Cloud Function используй runtime Golang 1.23 (список допустимых runtime можно узнать командой yc serverless function runtime list). Не используй файл спецификации функции. Назови файл с кодом функции index.go, а вызываемую функцию - Handler. Укажи корректную точку входа index.Handler.
-      Для работы с MQTT используй  библиотеку https://github.com/eclipse/paho.mqtt.golang.
-      Для формирования сообщения в MQTT устройство используй сгенерированный код в директории proto
+      Создай сервисный аккаунт с ролью lockbox.payloadViewer для чтения секретов Lockbox.
+      Используй этот сервисный аккаунт для работы с секретами Lockbox. Узнай и используй все 4 ключа из секрета с именем iot (это пароль к реестру, registryId, deviceId и корневой сертификат). Передавай 4 ключа секрета через переменные окружения версии функции подключенных специальным образом (флаг --secret, проверь как пользоваться командой создания функции yc serverless function version create --help).
+      Для создания Cloud Function используй runtime Golang 1.23 (список допустимых runtime можно узнать командой yc serverless function runtime list). Не используй файл спецификации функции. Назови файл с кодом функции index.go, а вызываемую функцию - Handler. Укажи корректную точку входа index.Handler. Сделай как в примере документации функций Handler(ctx context.Context) (*Response, error)
+      Для работы с MQTT используй  библиотеку https://github.com/eclipse/paho.mqtt.golang v1.5.0.
+      Для формирования сообщения в MQTT устройство используй сгенерированный код в директории proto, структуры iotpb.Packet, iotpb.CommandPayload и iotpb.Command.
       Команда разблокировки на основе iotpb.CommandPayload_SetParams, где ParamName: "vehicle_lock", Value: "unlocked", идентификатор устройства получить из секретов. Команда отправляется в MQTT топик $devices/<deviceId>/commands/command
       Для развертывания в облаке используй YC CLI с активным профилем. Не пиши файл deploy.sh, а сразу исполняй команды yc.
     groups:
