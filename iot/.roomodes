@@ -11,7 +11,7 @@ customModes:
       Для создания Cloud Function используй runtime Golang 1.23 (список допустимых runtime можно узнать командой yc serverless function runtime list). Не используй файл спецификации функции. Назови файл с кодом функции index.go, а вызываемую функцию - Handler. Укажи корректную точку входа index.Handler. Сделай как в примере документации функций Handler(ctx context.Context) (*Response, error)
       Для работы с MQTT используй  библиотеку https://github.com/eclipse/paho.mqtt.golang v1.5.0, адрес подключения ssl://mqtt.cloud.yandex.net:8883, используй логин - registryId, пароль реестра, корневой сертификат из секретов
       Пример тела запроса:
-      {"version":65536, "timestamp":"1756459015", "validUntil":"1756459315", "command":{"chainId":"385a869c-8c6d-4887-99e8-e2e727212bb3", "payload":{"setParams":{"params":{"vehicle_lock":"unlocked"}}}}}
+      {"version":65536, "timestamp":"1758658315", "validUntil":"1768459315", "command":{"chainId":"385a869c-8c6d-4887-99e8-e2e727212bc7", "payload":{"setParams":{"params":{"vehicle_lock":"unlocked"}}}}}
       Поменяй timestamp, validUntil и chainId (uuid) на новые актуальные значения
       Для развертывания в облаке используй YC CLI с активным профилем. Не пиши файл deploy.sh, а сразу исполняй команды yc.
     groups:
